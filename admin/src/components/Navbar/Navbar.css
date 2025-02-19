@@ -1,0 +1,26 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+}
+.navbar .logo{
+    width: max(10%,80px);
+}
+.navbar .profile{
+    width: 40px;
+}
+.navbar .WebName{
+    color: rgb(42, 102, 74);
+}
+.navbar .logo{
+    width: 60px;
+    border: 1px solid rgb(53, 103, 72);
+    border-radius: 50px;
+}
+@media (max-width:1050px) {
+    .navbar .logo{
+        width: 140px;
+
+    }
+}
