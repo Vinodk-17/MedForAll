@@ -7,7 +7,7 @@ const [cartItems,setCartItems]=useState({});
 
 const url = "http://localhost:4000";
 const [token,setToken]= useState("");
-const [food_list,setFoodList] = useState([]);
+const [Med_list,setMedList] = useState([]);
 
 const addToCart= async (itemId)=>{
     if (!cartItems[itemId]) {
@@ -32,7 +32,7 @@ const getTotalCartAmount=()=>{
     let totalAmount=0;
     for (const item in cartItems) {
         if (cartItems[item]>0) {
-            let itemInfo =food_list.find((product)=>product._id===item); 
+            let itemInfo =Med_list.find((product)=>product._id===item); 
             totalAmount+=itemInfo.price* cartItems[item];
         }
         
@@ -40,9 +40,9 @@ const getTotalCartAmount=()=>{
     return totalAmount;
 }
 
-const fetchFoodList= async ()=>{
-    const response = await axios.get(url+"/api/food/list");
-    setFoodList(response.data.data)
+const fetchMedList= async ()=>{
+    const response = await axios.get(url+"/api/Med/list");
+    setMedList(response.data.data)
 }
 
 const loadCartData = async (token)=>{
@@ -53,7 +53,7 @@ const loadCartData = async (token)=>{
 useEffect(()=>{
 
 async function loadData(){
-    await fetchFoodList();
+    await fetchMedList();
     if (localStorage.getItem("token")) {
         setToken(localStorage.getItem("token"));
         await loadCartData(localStorage.getItem("token"));
@@ -63,7 +63,7 @@ loadData();
 },[])
 
     const contextValue = {
-    food_list,
+    Med_list,
     cartItems,
     setCartItems,
     addToCart,

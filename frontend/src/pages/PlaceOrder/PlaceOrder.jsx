@@ -4,7 +4,7 @@ import { StoreContext } from '../../components/context/StoreContext'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const PlaceOrder = () => {
-  const {getTotalCartAmount,token,food_list,cartItems,url}=useContext(StoreContext);
+  const {getTotalCartAmount,token,Med_list,cartItems,url}=useContext(StoreContext);
   
   const [data,setData] = useState({
     firstName:"",
@@ -27,7 +27,7 @@ const PlaceOrder = () => {
   const placeOrder = async (event)=>{
 event.preventDefault();
 let orderItems = [];
-food_list.map((item)=>{
+Med_list.map((item)=>{
   if (cartItems[item._id]>0) {
     let itemInfo = item;
     itemInfo["quantity"]= cartItems[item._id];

@@ -8,7 +8,7 @@ const List = ({url}) => {
 
 
   const fetchList = async ()=>{
-    const response = await axios.get(`${url}/api/food/list`);
+    const response = await axios.get(`${url}/api/Med/list`);
     
     if (response.data.success) {
       setList(response.data.data)
@@ -17,8 +17,8 @@ const List = ({url}) => {
       toast.error("Error");
     }
   }
-const removeFood=async(foodId)=>{
-const response = await axios.post(`${url}/api/food/remove`,{id:foodId});
+const removeMed=async(MedId)=>{
+const response = await axios.post(`${url}/api/Med/remove`,{id:MedId});
 await fetchList();
 if (response.data.success) {
   toast.success(response.data.message)
@@ -48,7 +48,7 @@ else{
 <p>{item.name}</p>
 <p>{item.category}</p>
 <p>₹ { item.price}</p>
-<p className='cursor' onClick={()=>removeFood(item._id)}>X</p>
+<p className='cursor' onClick={()=>removeMed(item._id)}>X</p>
               </div>
              )
         })}

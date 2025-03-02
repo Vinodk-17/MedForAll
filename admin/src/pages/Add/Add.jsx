@@ -28,7 +28,7 @@ formData.append("description",data.description)
 formData.append("price",Number(data.price))
 formData.append("category",data.category)
 formData.append("image",image)
-const response = await axios.post(`${url}/api/food/add`,formData);
+const response = await axios.post(`${url}/api/Med/add`,formData);
 if (response.data.success) {
   setData({
   
@@ -68,7 +68,7 @@ else{
           <div className="add-category flex-col">
             <p>Product category</p>
             <select onChange={onChangeHandler} name="category">
-              <option value="Diabetes Care">Diabetes Care</option>
+              {/* <option value="Diabetes Care">Diabetes Care</option> */}
               <option value="Heart Pain Care">Heart Pain Care</option>
               <option value="Stomach Care">Stomach Care</option>
               <option value="Liver Ache Care">Liver Ache Care</option>
@@ -77,6 +77,7 @@ else{
               <option value="Derma Care">Derma Care</option>
               <option value="Respiratory Care">Respiratory Care</option>
               <option value="Eyes-Retina Care">Eyes-Retina Care</option>
+              <option value="Diabetes Care">Diabetes Care</option>
             </select>
           </div>
           <div className="add-price flex-col">
