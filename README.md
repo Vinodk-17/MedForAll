@@ -88,6 +88,10 @@ cd admin
 npm run dev
 ```
 
+## 📌 Screenshot 
+
+![Admin Panel Screenshot](assets/images/admin-panel.png)
+
 ---
 
 ## 📜 API Endpoints
